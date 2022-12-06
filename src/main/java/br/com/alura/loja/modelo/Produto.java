@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +24,7 @@ public class Produto {
 	private BigDecimal preco;
 	private LocalDate dataCadastro = LocalDate.now();// Pegando data atual
 
-	@Enumerated(EnumType.STRING) // Salvar no banco pelo o nome da String e NÃO na ordem que consta no ENUM
+	@ManyToOne
 	private Categoria categoria;
 
 	public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
