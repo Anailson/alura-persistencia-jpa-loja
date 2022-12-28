@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "itens_pedido")
-public class ItemProduto {
+public class ItemPedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,14 +27,15 @@ public class ItemProduto {
 	@ManyToOne
 	private Produto produto;
 
-	public ItemProduto() {
+	public ItemPedido() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemProduto(int quantidade, Pedido pedido) {
-		super();
+	public ItemPedido(int quantidade, Pedido pedido, Produto produto) {
 		this.quantidade = quantidade;
 		this.pedido = pedido;
+		this.precoUnitario = produto.getPreco();
+		this.produto = produto;
 	}
 
 	public Long getId() {
