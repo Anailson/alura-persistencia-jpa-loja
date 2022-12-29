@@ -36,7 +36,10 @@ public class CadastroDePedido {
 		pedidoDao.cadastrar(pedido);
 		
 		em.getTransaction().commit();
-		//em.close();
+		
+		BigDecimal totalVendido = pedidoDao.valorTotalVendido();
+		System.out.println("VALOR TOTAL R$: " +totalVendido);
+		
 		
 
 	}
